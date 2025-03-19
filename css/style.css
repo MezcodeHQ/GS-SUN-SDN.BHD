@@ -124,7 +124,7 @@
     background:
         url(../img/bg-circle.png),
         url(../img/bg-triangle.png),
-        url(../wave.svg),
+        url(../img/wave.png),
         linear-gradient(to bottom right, var(--primary), var(--secondary));
     background-position:
         left 0px top 0px,
