@@ -1,8 +1,10 @@
 :root {
     --primary: #010280;
-    --secondary: #135CC5;
-    --light: #F0F6FF;
-    --dark: #262B47;
+    --secondary: #010280 ;
+    --light: #FFFFFF;
+    --dark: #787A91;
+    --custom-color: #89CFF0;
+    --random-color:#00b4d8;
 }
 
 
@@ -38,6 +40,7 @@ h5,
 h6,
 .fw-medium {
     font-weight: 500 !important;
+     color :#FFFFFF
 }
 
 
@@ -47,6 +50,13 @@ h6,
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.text-custom-gradient {
+    background-color: var(--custom-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
 
 .text-secondary-gradient {
     background: linear-gradient(to bottom right, var(--secondary), var(--primary));
@@ -60,6 +70,10 @@ h6,
 
 .bg-secondary-gradient {
     background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+}
+
+.bg-custom {
+    background-color: var(--custom-color);
 }
 
 
@@ -92,12 +106,12 @@ h6,
 
 .btn.btn-primary-gradient,
 .btn.btn-secondary-gradient::after {
-    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background-color: var(--random-color);
 }
 
 .btn.btn-secondary-gradient,
 .btn.btn-primary-gradient::after {
-    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    background-color: var(--random-color);
 }
 
 .btn.btn-primary-gradient:hover::after,
