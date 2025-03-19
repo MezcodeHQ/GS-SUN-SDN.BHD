@@ -124,7 +124,7 @@
     background:
         url(../img/bg-circle.png),
         url(../img/bg-triangle.png),
-        url(../img/bg-bottom.png),
+        url(../wave.svg),
         linear-gradient(to bottom right, var(--primary), var(--secondary));
     background-position:
         left 0px top 0px,
@@ -137,6 +137,15 @@
     .hero-header {
         padding: 6rem 0 9rem 0;
     }
+}
+
+.wave {
+    position: absolute;
+    bottom: -2px; /* Adjust if needed */
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
 }
 
 
