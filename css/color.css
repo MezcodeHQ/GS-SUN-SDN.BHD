@@ -1,0 +1,281 @@
+:root {
+    --primary: #010280;
+    --secondary: #010280 ;
+    --light: #FFFFFF;
+    --dark: #787A91;
+    --custom-color: #89CFF0;
+    --random-color:#00b4d8;
+}
+
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Heading ***/
+h1,
+h2,
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+h3,
+h4,
+.fw-semi-bold {
+    font-weight: 600 !important;
+}
+
+h5,
+h6,
+.fw-medium {
+    font-weight: 500 !important;
+     color :#FFFFFF
+}
+
+
+/*** Gradient Text & BG ***/
+.text-primary-gradient {
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-custom-gradient {
+    background-color: var(--custom-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.text-secondary-gradient {
+    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-primary-gradient {
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+}
+
+.bg-secondary-gradient {
+    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+}
+
+.bg-custom {
+    background-color: var(--custom-color);
+}
+
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn.btn-primary-gradient,
+.btn.btn-secondary-gradient {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+.btn.btn-primary-gradient::after,
+.btn.btn-secondary-gradient::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+    z-index: -1;
+    opacity: 0;
+}
+
+.btn.btn-primary-gradient,
+.btn.btn-secondary-gradient::after {
+    background-color: var(--random-color);
+}
+
+.btn.btn-secondary-gradient,
+.btn.btn-primary-gradient::after {
+    background-color: var(--random-color);
+}
+
+.btn.btn-primary-gradient:hover::after,
+.btn.btn-secondary-gradient:hover::after {
+    opacity: 1;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+    border: none;
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+}
+
+
+/* WhatsApp Container */
+.whatsapp-container {
+    position: fixed;
+    right: 45px;
+    bottom: 120px; /* Adjust for back-to-top spacing */
+    z-index: 100;
+    display: flex;
+    flex-direction: column-reverse; /* Toggle button stays at the bottom */
+    align-items: flex-end;
+}
+
+/* WhatsApp Toggle Button */
+.whatsapp-toggle {
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Additional WhatsApp Buttons */
+.whatsapp-buttons {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: flex-end;
+    gap: 15px; /* Space between buttons */
+    opacity: 0;
+    transform: translateY(30px); /* Initial position for animation */
+    pointer-events: none; /* Prevent clicking when hidden */
+    transition: all 0.3s ease;
+}
+
+.whatsapp-container.active .whatsapp-buttons {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable clicking when visible */
+    animation: reveal 0.6s ease-out;
+}
+
+/* Button Animation: Staggered Reveal */
+.whatsapp-container.active .whatsapp-buttons .whatsapp-button {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/* Delay Stagger for Each Button */
+.whatsapp-buttons .whatsapp-button:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.whatsapp-buttons .whatsapp-button:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Individual Button Styling */
+.whatsapp-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transform: translateX(100px); /* Start off-screen */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+/* Button Circle */
+.whatsapp-button .circle {
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.whatsapp-button .circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Button Text */
+.whatsapp-button .text {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #25D366;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for Revealing Animation */
+@keyframes slideIn {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
